@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Pictogram-question-mark">
+<g id="stroke-default">
+<g id="2px">
+<path d="M62 32C62 48.6 49.6 61.3 32 62C14.4 62.7 2 48.6 2 32C2 15.4 12.9 2 32 2C48.6 2 62 15.4 62 32Z" stroke="#494A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 18C20 18 22.9 23 23.9 23C24.9 23 31.2 17.9 33.9 21.3C38.1 26.6 28.8 28.7 28.3 33.6C28.2 35.1 28.3 39.6 28.3 39.6C28.3 39.6 32.2 40.4 35.4 39.4C35.5 37 34.7 34.8 37.7 32C40.7 29.2 45.9 24.8 41.3 17.5C35.9 8.9 22.6 15.1 20.1 18H20Z" stroke="#494A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31.9 52C26.8 52.5 26.7 43.7 31.6 44C38.6 44.4 35.8 51.6 31.9 52Z" stroke="#494A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="1px" d="M38.9001 51L43.5001 53.3M39.5001 55.8L37.2001 53M41.6001 48.5L39.7001 48.8M49.6001 12.5C45.3001 8.4 39.6001 5.9 33.6001 5.5" stroke="#494A4A" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,610 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HORIZON</title>
+<link rel="shortcut icon" href="img/favicons/favicon.ico">
+<link href="style/style.min.css?v=202306170830" rel="stylesheet">
+</head>
+<body>
+<header class="hz-navbar navbar navbar-default navbar-expand-lg" id="nc4navTopMain" role="navigation">
+<div class="navbar-header">
+<div class="navbar-brand dropdown">
+<a id="nc4navApps" class="dropdown-toggle" role="button" href="#" data-toggle="dropdown" title="Darbplūsmas" aria-expanded="false" aria-label="Darbplūsmas">
+Administrēšana
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu" role="listbox">
+<li>
+<a class="app-item" role="option" tabindex="-1" href="#" target="_self">
+<img class="img-inline" alt="Personālvadība" src="https://ux.visma.com/NC4-Beta/development/documentation/assets/img/apps/Autoinvoice-48.png">
+<span>Personālvadība</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<nav class="collapse navbar-collapse" id="nc4navCollapseMain" aria-label="Menu">
+<ul class="nav navbar-nav nav-tabs first-level" id="nc4navFlMenu" role="menubar" aria-label="Menu">
+<li>
+<a href="workflow-list.php.html" class="nav-item fl-menu-item" id="startPage" role="menuitem" aria-selected="true" aria-label="Darbplūsmas">Darbplūsmas</a>
+</li>
+<li>
+<a href="workflow-tasks.php.html" class="nav-item fl-menu-item" id="customers" role="menuitem" aria-label="Apstiprināšanas uzdevumi" aria-selected="false">Apstiprināšanas uzdevumi</a>
+</li>
+<li>
+<a href="workflow-performance.php.html" class="nav-item fl-menu-item" aria-label="Izpildes" aria-selected="false" role="menuitem">Izpildes</a>
+</li>
+</ul>
+<ul class="nav navbar-nav nav-tabs navbar-right first-level context-selector">
+<li class="icon">
+<a role="button" href="tasks.php.html">
+<span class="vismaicon vismaicon-menu vismaicon-dynamic vismaicon-email" aria-hidden="true"></span>
+</a>
+</li>
+<li class="icon">
+<a role="button" href="#">
+<span class="vismaicon vismaicon-menu vismaicon-dynamic vismaicon-help" aria-hidden="true"></span>
+</a>
+</li>
+<li class="dropdown user-dropdown">
+<a href="#!" class="dropdown-toggle button-context" title="(Alt+K)" data-toggle="dropdown" aria-expanded="true" role="button" aria-label="Information area">
+<span class="name">Jānis Bērziņš</span>
+<span class="vismaicon vismaicon-menu vismaicon-user"></span>
+<small class="selectedContext">Procesu analītiķis</small>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu company-selection" role="menu" aria-expanded="true" aria-hidden="false">
+<li class="user-details-area clear" role="menuitem">
+<div title="christian.mcbale.jr@somemail.com">
+<div class="user-image">
+<img src="assets/avatar.png" alt="User avatar image">
+</div>
+<div class="user-text">
+<span>Jānis Bērziņš</span>
+<span class="text-disabled"><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="90faf1fef9e3bef2f5e2eaf9fee3d0fdf1f9fcbef3fffd">[email&#160;protected]</a></span>
+</div>
+</div>
+</li>
+<li class="divider"></li>
+<li role="menuitem">
+<a href="#!">Profils</a>
+</li>
+<li role="menuitem">
+<a href="#!">Paroles maiņa</a>
+</li>
+<li class="divider"></li>
+<li role="menuitem">
+<a href="#!">Palīdzība</a>
+</li>
+<li role="menuitem">
+<a href="#!">Problēmu ziņojumi</a>
+</li>
+<li class="divider"></li>
+<li role="menuitem">
+<label class="switch switch-label light-dark-toggle" for="option-example2">
+<b class="light">Diena</b>
+<input id="option-example2" type="checkbox" name="option-example2">
+<span class="togglemark" id="daynight">
+<b class="details"></b>
+</span>
+<b class="dark">Nakts</b>
+</label>
+</li>
+<li class="divider divider-strong"></li>
+<li class="context-footer company-selection-footer clear" role="menuitem">
+<a href="#!" class="log-out-link vismaicon vismaicon-sm vismaicon-dynamic vismaicon-logout">Iziet</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</header>
+<div class="panel hz-sticky">
+<div class="panel-body p-16">
+<div class="row">
+<div class="col">
+<ol class="breadcrumb p-0 d-none d-sm-block">
+<li>
+<a href="index.php.html">Sākums</a>
+</li>
+<li>
+<a href="workflow-list.php.html">Darbplūsmas</a>
+</li>
+<li class="active">Darbplūsmas nosaukums</li>
+</ol>
+<h1 class="m-0">Darbplūsmas nosaukums
+<span class="badge badge-info">Sagatave</span>
+</h1>
+</div>
+<div class="col-auto d-flex align-items-end">
+<button type="button" class="btn btn-danger m-0 mr-10" data-toggle="modal" data-target="#add_workflow">Apstādināt</button>
+<a class="btn btn-default m-0" href="workflow-list.php.html">Aizvērt</a>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-8">
+<div class="panel rounded-10">
+<div class="panel-body">
+<div class="row">
+<div class="col">
+<form>
+<div class="row pb-16">
+<label for="nosaukums" class="col-sm-3 col-form-label  pb-4 font-weight-bold">Nosaukums</label>
+<div class="col-sm-9">
+Darplūsmas nosaukums
+</div>
+</div>
+<div class="row pb-16">
+<label for="epasts" class="col-sm-3 col-form-label  pb-4 font-weight-bold">Noklusētais e-pasts</label>
+<div class="col-sm-9">
+<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="81e4f1e0f2f5f2c1e4f1e0f2f5f2afe2eeec">[email&#160;protected]</a>
+</div>
+</div>
+<div class="row pb-16">
+<label for="veids" class="col-sm-3 col-form-label pb-4 font-weight-bold">Dokumenta veids</label>
+<div class="col-sm-9">
+Rēķins
+</div>
+</div>
+<div class="row pb-16">
+<label for="apraksts" class="col-sm-3 col-form-label pb-4 font-weight-bold">Apraksts</label>
+<div class="col-sm-9">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+</div>
+<div class="row">
+<label for="veids" class="col-sm-3 col-form-label pb-4 font-weight-bold">Izpildes nosacījums</label>
+<div class="col-sm-9 ">
+<div class="pb-6 d-flex align-items-center">
+<span class="vismaicon vismaicon-dynamic vismaicon-ok-circle mr-6" aria-hidden="true"></span> Citas darplūsmas soļa rezultāts
+</div>
+<div class="panel bg-primary border rounded-10">
+<div class="panel-body p-12 ">Te ir nosacījumu formula kas pasaka pie kāda nosacījuma uzsākas izpilds.</div>
+</div>
+</div>
+</div></form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col">
+<h2>Soļi</h2>
+<div class="panel shadow-20 hz-panel hz-panel rounded-10 pl-6">
+<div class="hz-panel-body p-12">
+<div class="d-flex align-items-center">
+<span class="d-flex align-items-center mr-16">
+<span class="vismaicon vismaicon-preview m-0 " data-toggle="modal" data-target="#exampleModal"></span>
+</span>
+<div class="description">
+Virsstundu pārbaude </div>
+<div class="ml-auto">
+<a href="#" class="mr-10" id="subpro" data-toggle="collapse" data-target="#sub_a"><span class="vismaicon vismaicon-integration mr "></span>
+<count>2</count>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-processes collapse in" id="sub_a">
+<h3 class="mb-6 font-weight-bold d-flex align-items-center"> <span class="vismaicon vismaicon-integration mr-6"></span> Paralēlie soļi</h3>
+<div class="row">
+<div class="col-12">
+<div class="panel shadow-20 hz-panel hz-panel rounded-10 pl-6">
+<div class="hz-panel-body p-12">
+<div class="d-flex align-items-center">
+<span class="d-flex align-items-center mr-16">
+<span class="vismaicon vismaicon-preview m-0 " data-toggle="modal" data-target="#exampleModal"></span>
+</span>
+<div class="description">
+Saskaņošana | Struktūrvienības vadītājs </div>
+</div>
+</div>
+</div> </div>
+<div class="col-12">
+<div class="panel shadow-20 hz-panel hz-panel rounded-10 pl-6">
+<div class="hz-panel-body p-12">
+<div class="d-flex align-items-center">
+<span class="d-flex align-items-center mr-16">
+<span class="vismaicon vismaicon-preview m-0 " data-toggle="modal" data-target="#exampleModal"></span>
+</span>
+<div class="description">
+Saskaņošana | Galvenais ārsts </div>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+<div class="panel shadow-20 hz-panel hz-panel rounded-10 pl-6">
+<div class="hz-panel-body p-12">
+<div class="d-flex align-items-center">
+<span class="d-flex align-items-center mr-16">
+<span class="vismaicon vismaicon-preview m-0 " data-toggle="modal" data-target="#exampleModal"></span>
+</span>
+<div class="description">
+Parakstīt </div>
+<div class="ml-auto">
+</div>
+</div>
+</div>
+</div>
+<div class="panel shadow-20 hz-panel hz-panel rounded-10 pl-6">
+<div class="hz-panel-body p-12">
+<div class="d-flex align-items-center">
+<span class="d-flex align-items-center mr-16">
+<span class="vismaicon vismaicon-preview m-0 " data-toggle="modal" data-target="#exampleModal"></span>
+</span>
+<div class="description">
+Nosūtīt </div>
+<div class="ml-auto">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade hz-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">SUB-Darbības nosaukums A</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div>
+<div class="form-group mb-10">
+<label for="n1" class="font-weight-bold">Nosaukums</label>
+<div>Soļa nosaukums</div>
+</div>
+<div class="form-group">
+<label for="exampleFormControlSelect1" class="font-weight-bold">Loma</label>
+<div>Administrators</div>
+</div>
+<div class="form-group">
+<label for="exampleFormControlSelect1" class="font-weight-bold">Izpildītājs</label>
+<div> Grāmatvedis</div>
+</div>
+<div class="form-group">
+<label for="exampleFormControlSelect1" class="font-weight-bold">E-pasta šablons</label>
+<div>Ziemassvētki</div>
+</div>
+<div class="form-group">
+<div class="pb-6 d-flex align-items-center">
+<span class="vismaicon vismaicon-dynamic vismaicon-ok-circle mr-6" aria-hidden="true"></span> Drīkst mainīt saskaņotāju
+</div>
+</div>
+<div class="form-group">
+<div class="pb-6 d-flex align-items-center">
+<span class="vismaicon vismaicon-dynamic vismaicon-ok-circle mr-6" aria-hidden="true"></span> Jāparaksta ar e-parakstu
+</div>
+</div>
+<div class="form-group">
+<label for="exampleFormControlTextarea1" class="font-weight-bold">Komentārs</label>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+</div>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Aizvērt</button>
+</div>
+</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="jquery-3.4.1.min.js"></script>
+
+<script src="npm/bootstrap%403.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+  </script>
+<script src="vud/js/tabdrop.js"></script>
+<script src="vud/js/dropdowns.js"></script>
+<script src="vud/js/timepicker.js"></script>
+<script src="vud/js/collapsible-list.js"></script>
+<script src="vud/js/top-navigation/navigation.js"></script>
+<script src="custom.js?V=202306170718"></script>
+<script>
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip(
+      {
+        template: '<div class="tooltip tooltip-secondary font-13 p-6" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+    }
+    )
+  })
+
+ 
+
+  $(document).ready(function () {
+    // Hide all nested rows on load
+    $('.nested').hide();
+
+    // Toggle the nested row when the button is clicked
+    $('[data-toggle="nested"]').on('click', function () {
+      $(this).toggleClass('active');
+      $($(this).data('target')).toggle();
+      // Change the icon class
+      $(this).find('.vismaicon').toggleClass('vismaicon-arrow-down-circle vismaicon-arrow-up-circle');
+    });
+  });
+
+
+  $(document).ready(function () {
+    // Hide all children rows initially
+    $(".children").hide();
+
+    // Toggle show/hide when button is clicked
+    $("button[data-toggle='children']").click(function () {
+      $(".children").toggle();
+
+      // Change arrow icon direction
+      var icon = $(this).find("span.vismaicon");
+      if (icon.hasClass("vismaicon-arrow-down-circle")) {
+        icon.removeClass("vismaicon-arrow-down-circle").addClass("vismaicon-arrow-up-circle");
+      } else {
+        icon.removeClass("vismaicon-arrow-up-circle").addClass("vismaicon-arrow-down-circle");
+      }
+    });
+  });
+
+
+
+
+
+  $("#subpro").click(
+    function (e) {
+      e.preventDefault();
+      $(this).closest("collapse").toggleClass("in");
+    },
+    function (e) {
+      $(this).closest("collapse").toggleClass("in");
+    }
+  );
+  $(".menu-bg").click(function (e) {
+    //e.preventDefault();
+    $("body").toggleClass("active");
+  });
+
+
+
+  //cookie filter start
+
+
+  // Get the value of the cookie
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+      return parts.pop().split(';').shift();
+    }
+  }
+
+  // Set the value of the cookie
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = `; expires=${date.toUTCString()}`;
+    }
+    document.cookie = `${name}=${value}${expires}; path=/`;
+  }
+
+
+  // Show search button
+  if (getCookie('filter-') === 'true' || getCookie('time-filter-') === 'true') {
+    $(".filter-button-").addClass("d-block");
+    $(".filter-button-").removeClass("d-none");
+  } else {
+    $(".filter-button-").addClass("d-none");
+    $(".filter-button-").removeClass("d-block");
+  }
+
+  $("#open-filter").click(function (e) {
+
+    if ($(".filter-button-").hasClass("d-block") && getCookie('time-filter-') !== 'true') {
+      $(".filter-button-").removeClass("d-block");
+      $(".filter-button-").addClass("d-none");
+      
+    }
+    else {
+      $(".filter-button-").addClass("d-block");
+      $(".filter-button-").removeClass("d-none");
+    }
+  });
+
+  // Check if the 'filter' cookie is set and toggle the 'in' class and checkbox accordingly
+  if (getCookie('filter-') === 'true') {
+    $(".filter-").addClass("d-block");
+    $(".filter-").removeClass("d-none");
+    $("#option").prop("checked", true);
+  } else {
+    $(".filter-").removeClass("d-block");
+    $(".filter-").addClass("d-none");
+    $("#option").prop("checked", false);
+  }
+
+  $("#open-filter").click(function (e) {
+
+
+    
+
+    if ($(".filter-").hasClass("d-none")) {
+
+      $(".filter-").removeClass("d-none");
+      $(".filter-").addClass("d-block");
+
+      setCookie('filter-', 'true', 7);
+
+    }
+    else if ($(".filter-").hasClass("d-block")) {
+      $(".filter-").removeClass("d-block");
+      $(".filter-").addClass("d-none");
+
+      document.cookie = 'filter-=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+
+    }
+  });
+
+  //filter end
+
+
+  // Check if the 'time-filter' cookie is set and toggle the 'in' class and checkbox accordingly
+  if (getCookie('time-filter-') === 'true') {
+    $(".time-filter-").addClass("d-block");
+    $(".time-filter-").removeClass("d-none");
+    $("#active").removeClass("btn-primary");
+    $("#archive").addClass("btn-primary");
+  } else {
+    $(".time-filter-").addClass("d-none");
+    $(".time-filter-").removeClass("d-block");
+    $("#active").addClass("btn-primary");
+    $("#archive").removeClass("btn-primary");
+  }
+
+  $("#archive").click(function (e) {
+    
+    if ($(".filter-button-").hasClass("d-none")) {
+      $(".filter-button-").removeClass("d-none");
+      $(".filter-button-").addClass("d-block");
+    }
+
+
+
+    $("#active").removeClass("btn-primary");
+    $("#archive").addClass("btn-primary");
+    if ($(".time-filter-").hasClass("d-none")) {
+      $(".time-filter-").removeClass("d-none");
+      $(".time-filter-").addClass("d-block");
+
+      // Set a cookie with the name 'filter' and the value 'true'
+      setCookie('time-filter-', 'true', 7);
+
+    }
+  });
+
+  $("#active").click(function (e) {
+    
+    if ($(".filter-button-").hasClass("d-block") && getCookie('filter-') !== 'true') {
+      $(".filter-button-").removeClass("d-block");
+      $(".filter-button-").addClass("d-none");
+      
+    }
+    
+
+
+    $("#active").addClass("btn-primary");
+    $("#archive").removeClass("btn-primary");
+    if ($(".time-filter-").hasClass("d-block")) {
+      $(".time-filter-").removeClass("d-block");
+      $(".time-filter-").addClass("d-none");
+      // Set a cookie with the name 'filter' and the value 'true'
+      document.cookie = 'time-filter-=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+
+    }
+  });
+
+  //time-filter end
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const floatingSelects = document.querySelectorAll('.hz-floating-select');
+
+    floatingSelects.forEach((select) => {
+      const label = select.nextElementSibling;
+
+      label.addEventListener('click', () => {
+        select.focus();
+      });
+
+      select.addEventListener('change', () => {
+        if (select.value) {
+          label.classList.add('active');
+        } else {
+          label.classList.remove('active');
+        }
+      });
+
+      // This event listener checks if the select element is pre-filled
+      // and applies the 'active' class accordingly
+      window.addEventListener('load', () => {
+        if (select.value) {
+          label.classList.add('active');
+        }
+      });
+    });
+  });
+
+
+
+//floating end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script>
+  $(document).ready(function () {
+
+
+
+
+    //check the button which is clicked
+    const dark = localStorage.getItem("dark");
+    if (dark == "1") {
+      // alert(dark);
+      console.log("dark");
+      $("html").addClass("dark-theme");
+      $("html").removeClass("light-theme");
+      $(".light-dark-toggle input").prop("checked", true);
+      localStorage.setItem("dark", "1");
+    }
+    if (dark == "0" || typeof localStorage["dark"] === "undefined") {
+      console.log("light");
+      $("html").addClass("light-theme");
+      $("html").removeClass("dark-theme");
+      localStorage.setItem("dark", "0");
+    }
+    if (dark == "0") {
+      $("#daynight").click(function () {
+        console.log("to dark");
+        $("html").toggleClass("dark-theme");
+        $("html").toggleClass("light-theme");
+        localStorage.setItem("dark", "1");
+      });
+    }
+    if (dark == "1") {
+      $("#daynight").click(function () {
+        console.log("to light");
+        $("html").removeClass("dark-theme");
+        $("html").addClass("light-theme");
+        localStorage.setItem("dark", "0");
+      });
+    }
+    //on click of the button add the class we need a nd set the cookies
+  });
+</script>
+<script src="ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</body>
+</html>
